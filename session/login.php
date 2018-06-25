@@ -7,14 +7,15 @@
 	$pass = mysqli_real_escape_string($con,$_POST['user_pass']);
 	
 		$sql = "SELECT count(*) as cntUser from users where user_name= '".$usuario."' and user_pass = '".$pass."' ";
-		$result = mysqli_query($con,$sqlsql);
-    	$row = mysqli_fetch_array($result);
-		if($userbd == $usuario /*and password_verify($pass, $userpass*/){
-			
-			session_start();
-			$_SESSION['usuario']=$userbd['user_name'];	
-						
-		}else{
-			die("Error al autenticar");
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result);
+		$count = $row['cntUser'];
+		
+
+    	if($count > 0){
+        $_SESSION['usuario'] = $usuario;
+        echo 1;
+    	}else{
+        echo 0;
 		}
- ?>
+	?>

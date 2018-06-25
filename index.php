@@ -1,14 +1,11 @@
 <?php
-
+require 'session/login.php';
 session_start();
 if(!isset($_SESSION['usuario']) ){
 	header('Location: home.php');  
  
 }
-else{
-$_SESSION['admin'];
-require 'session/login.php';
-};
+
 ?>
 
 

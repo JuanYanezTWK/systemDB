@@ -65,8 +65,7 @@ session_start();
 				data: {user_name: username, user_pass: password}
 				sucess:function(response){
 							if(response == 1){
-								window.location="index.php";
-								
+								window.location="index.php";								
 							}else{
 								alertify.alert("Fallo al entrar");
 								console.log(data);
