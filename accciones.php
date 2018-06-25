@@ -6,14 +6,17 @@
     asi que lo use de otra manera al final y lo guarde para ver si logro aprender mas de PDO, cree una nueva clase de conexion
     y la añadi aqui abajo
     */
-    include 'session/conexion.php';
+    /*include 'session/conexion.php';
     $conexion = new Conexion();
     $con = $conexion-> getConexion();
+    */
     
     try{
+        $con = mysqli_connect("localhost","root","", "tallerbd");
+	    
         //aca esta la manera en que la tabla escuchaba, es de tipo GET, no averigue sobre como llenarla con POST
         if ($_GET['action']=='list') {
-            
+           /* 
             //sacar cantidad total de registros en la tabla
             $sql="SELECT count(*) as RecordCount from users";
             $result=mysqli_query($con,$sql);
@@ -25,8 +28,10 @@
             $campoDorden=$_GET['jtSorting'];
             $inicioReg=$_GET['jtStartIndex'];
             $finReg=$_GET['jtPageSize'];
-            $sql="SELECT * FROM users order by '$campoDorden' limit $inicioReg,$finReg";
-            $result=mysqli_query($con,$sql);            
+            */
+            $sql="SELECT * FROM users"; //order by '$campoDorden' limit $inicioReg,$finReg";
+            $result = mysqli_query($con, $sql);
+                     
 
             //agregar datos a un arreglo y mandar por json
             $rows=array();
@@ -35,13 +40,11 @@
                 $rows[]=$row;
             }
 
-            $jTableResult=array();
-            $jTableResult['Result']="OK";
-            $jTableResult['TotalRecordCount']=$recordCount;
-            $jTableResult['Records']=$rows;
-
-            echo json_encode($jTableResult);
-
+        $jTableResult = array();
+		$jTableResult['Result'] = "OK";
+		$jTableResult['Records'] = $rows;
+		echo json_encode($jTableResult);
+    
         }
         
 	//Creating a new record (createAction)
@@ -51,7 +54,7 @@
 		$result = mysql_query("INSERT INTO users(user_name, user_pass, user_position) VALUES('" . $_POST["username"] . "', '" . $_POST["userpass"] . "', '" . $_POST["userposition"] . "') ");
 		
 		//Get last inserted record (to return to jTable)
-		$result = mysql_query("SELECT * FROM people users PersonId = LAST_INSERT_ID();");
+		$result = mysql_query("SELECT * FROM users where user_id = LAST_INSERT_ID();");
 		$row = mysql_fetch_array($result);
 
 		//Return result to jTable
@@ -64,7 +67,7 @@
 	else if($_GET["action"] == "update")
 	{
 		//Update record in database
-		$result = mysql_query("UPDATE people SET user_name = '" . $_POST["username"] . "', user_pass = " . $_POST["userpass"] . ", user_position = '" . $_POST["userposition"] . "' WHERE user_id = " . $_POST["user_id"] . ";");
+		$result = mysql_query("UPDATE users SET user_name = '" . $_POST["username"] . "', user_pass = " . $_POST["userpass"] . ", user_position = '" . $_POST["userposition"] . "' WHERE user_id = " . $_POST["user_id"] . ";");
 
 		//Return result to jTable
 		$jTableResult = array();
@@ -84,12 +87,12 @@
 	}
 
 	//Close database connection
-	mysql_close($con);   
+	mysqli_close($con);   
 
-    }catch (Exception $e){
+    }catch (Exception $ex){
         $jTableResult=array();
         $jTableResult['Result']="ERROR";
-        $jTableResult['Message']=$e->getMessage();
+        $jTableResult['Message']=$ex->getMessage();
         echo json_encode($jTableResult);
     }
 ?>

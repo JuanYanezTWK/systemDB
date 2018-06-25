@@ -7,11 +7,13 @@
         </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="estilos.css">
-        <link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css">
-        <link rel="stylesheet" href="jtable/themes/lightcolor/green/jtable.css">
-        <script src="jquery.min.js"></script>
-        <script src="jquery/jquery-ui.js"></script>
-        <script src="jtable/jquery.jtable.js"></script>
+        <link href="themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+	    <link href="Scripts/jtable/themes/lightcolor/green/jtable.css" rel="stylesheet" type="text/css" />
+	
+	    <script src="scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+        <script src="Scripts/jtable/jquery.jtable.js" type="text/javascript"></script>
+	
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         
  
@@ -33,7 +35,7 @@
                sorting: true, //ordenado de registros
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
-                   listAction: 'accciones.php?action=list' //definmos como mandaremos los datos
+                   listAction: 'accciones.php?action=list', //definmos como mandaremos los datos
                    createAction: 'accciones.php?action=create',
 				   updateAction: 'accciones.php?action=update',
 				   deleteAction: 'accciones.php?action=delete' 
