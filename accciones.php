@@ -42,7 +42,49 @@
 
             echo json_encode($jTableResult);
 
-        }   
+        }
+        
+	//Creating a new record (createAction)
+	else if($_GET["action"] == "create")
+	{
+		//Insert record into database
+		$result = mysql_query("INSERT INTO users(user_name, user_pass, user_position) VALUES('" . $_POST["username"] . "', '" . $_POST["userpass"] . "', '" . $_POST["userposition"] . "') ");
+		
+		//Get last inserted record (to return to jTable)
+		$result = mysql_query("SELECT * FROM people users PersonId = LAST_INSERT_ID();");
+		$row = mysql_fetch_array($result);
+
+		//Return result to jTable
+		$jTableResult = array();
+		$jTableResult['Result'] = "OK";
+		$jTableResult['Record'] = $row;
+		print json_encode($jTableResult);
+	}
+	//Updating a record (updateAction)
+	else if($_GET["action"] == "update")
+	{
+		//Update record in database
+		$result = mysql_query("UPDATE people SET user_name = '" . $_POST["username"] . "', user_pass = " . $_POST["userpass"] . ", user_position = '" . $_POST["userposition"] . "' WHERE user_id = " . $_POST["user_id"] . ";");
+
+		//Return result to jTable
+		$jTableResult = array();
+		$jTableResult['Result'] = "OK";
+		print json_encode($jTableResult);
+	}
+	//Deleting a record (deleteAction)
+	else if($_GET["action"] == "delete")
+	{
+		//Delete from database
+		$result = mysql_query("DELETE FROM users WHERE user_id = " . $_POST["user_id"] . ";");
+
+		//Return result to jTable
+		$jTableResult = array();
+		$jTableResult['Result'] = "OK";
+		print json_encode($jTableResult);
+	}
+
+	//Close database connection
+	mysql_close($con);   
 
     }catch (Exception $e){
         $jTableResult=array();

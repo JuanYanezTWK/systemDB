@@ -18,10 +18,8 @@
     </head>
     <body>
         <form id="formulario">
-        <div id="usuarios" style="width: 900px"></div>   
-        <div class="btn-group">
-            <button type="button" id="add" class="btn btn-success">Agregar</button>
-        </div>
+        <div id="usuarios" style="width: 700px"></div>   
+       
         </form>
     </body>
 </html>
@@ -36,6 +34,9 @@
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
                    listAction: 'accciones.php?action=list' //definmos como mandaremos los datos
+                   createAction: 'accciones.php?action=create',
+				   updateAction: 'accciones.php?action=update',
+				   deleteAction: 'accciones.php?action=delete' 
                },
                fields:{
                    user_id:{
@@ -48,27 +49,28 @@
                    },
                    user_name:{
                        title:'Nombre de usuario',
-                       width:'30%',
+                       width:'25%',
                        
                    },
                    user_pass:{
                        title:'Contraseña',
-                       width: '30%',
+                       width: '20%',
                        create:false,
                        edit:false
                    },
                    user_position:{
                        title:'Cargo',
-                       width:'30%',
+                       width:'20%',
                        create:false,
                        edit:false
                    }
                }
            }); 
            $('#usuarios').jtable('load'); //carga las acciones
-           $('#add').click(function(){
+          /* $('#add').click(function(){
         window.location="registro.php";
-    });
+        <div class="btn-group"> <button type="button" id="add" class="btn btn-success">Agregar</button> </div> > 
+    });*/
         });
     
     </script>
