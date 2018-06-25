@@ -1,5 +1,17 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['usuario']) ){
+	header('Location: home.php');  
+ 
+}
+else{
+$_SESSION['admin'];
+require 'session/login.php';
+};
 ?>
+
+
 <html lang="es">
     <head>
         <title>
@@ -35,7 +47,7 @@
                sorting: true, //ordenado de registros
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
-                   listAction: 'accciones.php?action=list', //definmos como mandaremos los datos
+                   listAction: 'accciones.php?action=list', //definimos como mandaremos los datos
                    createAction: 'accciones.php?action=create',
 				   updateAction: 'accciones.php?action=update',
 				   deleteAction: 'accciones.php?action=delete' 
@@ -45,36 +57,34 @@
                        key:true,
                        title:'ID',
                        create:false,
-                       edit:false,
+                       edit: false,
                        width:'5%'
                        
                    },
                    user_name:{
                        title:'Nombre de usuario',
                        width:'25%',
+                       create: true,
+                       edit:true
                        
                    },
                    user_pass:{
                        title:'Contraseña',
                        width: '20%',
-                       create:false,
-                       edit:false
+                       create:true,
+                       edit:true
                    },
                    user_position:{
                        title:'Cargo',
                        width:'20%',
-                       create:false,
-                       edit:false
+                       create:true,
+                       edit:true
                    }
                }
            }); 
            $('#usuarios').jtable('load'); //carga las acciones
-          /* $('#add').click(function(){
-        window.location="registro.php";
-        <div class="btn-group"> <button type="button" id="add" class="btn btn-success">Agregar</button> </div> > 
-    });*/
+         
         });
     
     </script>
   
- 

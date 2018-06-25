@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require("session/conexion.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,17 +24,18 @@ require("session/conexion.php");
 			<div class="panel panel-primary">
 				<div class="panel panel-heading">Login</div>
 				<div class="panel panel-body">
+				<form method="POST" id="acceso" action="" accept-charset="utf-8">
 					<div style="text-align: center;">
 						<img src="img/photoz.jpg" height="250">
 					</div>
 					<p></p>
 					<label>Usuario</label>
-					<input type="text" id="usuario" class="form-control input-sm" name="">
+					<input type="text" id="user_name" class="acceso" name=""><br>
 					<label>Password</label>
-					<input type="text" id="pass" class="form-control input-sm" name="">
+					<input type="password" id="user_pass" class="acceso" name="">
 					<p></p>
-					<span class="btn btn-primary" id="entrarSistema">Entrar</span>
-					
+					<input type="submit" name="acceso" class="acceso" value="Acceder">
+				</form>
 				</div>
 			</div>
 		</div>
@@ -47,29 +47,32 @@ require("session/conexion.php");
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#entrarSistema').click(function(){
-			if($('#usuario').val()==""){
+		$('#acceso').click(function(e){
+			var username = $("#user_name").val().trim();
+        	var password = $("#user_pass").val().trim();
+			if($('#user_name').val()==""){
 				alertify.alert("Debes agregar el usuario");
 				return false;
-			}else if($('#pass').val()==""){
+			}else if($('#user_pass').val()==""){
 				alertify.alert("Debes agregar el password");
 				return false;
 			}
-
-			cadena="user_name="+$('#usuario').val()+"&user_pass="+$('#pass').val();
-					$.ajax({
-						type:"POST",
-						url:"session/login.php",
-						data:cadena,
-						success:function(r){
-							if(r==1){
-                                window.location="index.php";
+			e.preventDefault();
+			
+				$.ajax({
+				url:"session/login.php",
+				type:"POST",
+				data: {user_name: username, user_pass: password}
+				sucess:function(response){
+							if(response == 1){
+								window.location="index.php";
+								
 							}else{
 								alertify.alert("Fallo al entrar");
-                                console.log(cadena);
+								console.log(data);
                             }
-						}
+						
 					});
 		});	
-	});
+
 </script>

@@ -1,23 +1,20 @@
 <?php 
-	session_start();	
+	require "conexion.php";
 
-	require_once "conexion.php";
-
-	$con=conexion();
-
-		$usuario=$_POST['user_name'];
-		$pass=sha1($_POST['user_pass']);
-		
-
-		$sql="SELECT * from users where user_name='$usuario' and user_pass='$pass'";
-		$result=mysqli_query($con,$sql);
-		
-		if(mysqli_num_rows($result) > 0){
-
-			$_SESSION['user']=$usuario;
-			echo 1;
-
+	$conexion = new Conexion();
+	$con = $conexion-> getConexion();
+	$usuario = mysqli_real_escape_string($con,$_POST['user_name']);
+	$pass = mysqli_real_escape_string($con,$_POST['user_pass']);
+	
+		$sql = "SELECT count(*) as cntUser from users where user_name= '".$usuario."' and user_pass = '".$pass."' ";
+		$result = mysqli_query($con,$sqlsql);
+    	$row = mysqli_fetch_array($result);
+		if($userbd == $usuario /*and password_verify($pass, $userpass*/){
+			
+			session_start();
+			$_SESSION['usuario']=$userbd['user_name'];	
+						
 		}else{
-			echo 0;
+			die("Error al autenticar");
 		}
  ?>
