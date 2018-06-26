@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ session_start();
 			<div class="panel panel-primary">
 				<div class="panel panel-heading">Login</div>
 				<div class="panel panel-body">
-				<form method="POST" id="acceso" action="" accept-charset="utf-8">
+				
 					<div style="text-align: center;">
 						<img src="img/photoz.jpg" height="250">
 					</div>
@@ -32,10 +31,10 @@ session_start();
 					<label>Usuario</label>
 					<input type="text" id="user_name" class="acceso" name=""><br>
 					<label>Password</label>
-					<input type="password" id="user_pass" class="acceso" name="">
+					<input type="text" id="user_pass" class="acceso" name="">
 					<p></p>
-					<input type="submit" name="acceso" class="acceso" value="Acceder">
-				</form>
+					<input type="submit" name="acceso" class="acceso" id="acceso" value="Acceder">
+				
 				</div>
 			</div>
 		</div>
@@ -57,8 +56,6 @@ session_start();
 				alertify.alert("Debes agregar el password");
 				return false;
 			}
-			e.preventDefault();
-			
 				$.ajax({
 				url:"session/login.php",
 				type:"POST",
@@ -68,7 +65,7 @@ session_start();
 								window.location="index.php";								
 							}else{
 								alertify.alert("Fallo al entrar");
-								console.log(data);
+								console.log(username, password);
                             }
 						
 					});

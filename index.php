@@ -1,14 +1,6 @@
 <?php
-require 'session/login.php';
-session_start();
-if(!isset($_SESSION['usuario']) ){
-	header('Location: home.php');  
- 
-}
 
 ?>
-
-
 <html lang="es">
     <head>
         <title>
@@ -44,7 +36,7 @@ if(!isset($_SESSION['usuario']) ){
                sorting: true, //ordenado de registros
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
-                   listAction: 'accciones.php?action=list', //definimos como mandaremos los datos
+                   listAction: 'accciones.php?action=list', //definimos como traeremos los datos
                    createAction: 'accciones.php?action=create',
 				   updateAction: 'accciones.php?action=update',
 				   deleteAction: 'accciones.php?action=delete' 
