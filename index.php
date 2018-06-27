@@ -48,7 +48,7 @@ if(!isset($_SESSION['usuario']) ){
                actions:{
                    listAction: 'accciones.php?action=list', //definimos como mandaremos los datos
                    createAction: 'controlador.php?action=create',
-				   updateAction: 'accciones.php?action=update',
+				   updateAction: 'controlador.php?action=update',
 				   deleteAction: 'accciones.php?action=delete' 
                },
                fields:{
