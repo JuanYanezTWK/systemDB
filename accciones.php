@@ -1,11 +1,5 @@
 <?php
-    /*include 'connect.php';
-    $conexion = new Conexion();
-    $con = $conexion->getConexion();
-    Esto lo deje comentado, ya que habia creado una clase para conexion a la bD de tipo PDO, no pude conectarla a este php, 
-    asi que lo use de otra manera al final y lo guarde para ver si logro aprender mas de PDO, cree una nueva clase de conexion
-    y la añadi aqui abajo
-    */
+   
     include 'session/conexion.php';
     $conexion = new Conexion();
     $con = $conexion-> getConexion();
