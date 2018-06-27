@@ -1,11 +1,13 @@
 <?php
+
+/*
 require 'session/login.php';
 session_start();
 if(!isset($_SESSION['usuario']) ){
 	header('Location: home.php');  
  
 }
-
+*/
 ?>
 
 
@@ -45,7 +47,7 @@ if(!isset($_SESSION['usuario']) ){
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
                    listAction: 'accciones.php?action=list', //definimos como mandaremos los datos
-                   createAction: 'accciones.php?action=create',
+                   createAction: 'controlador.php?action=create',
 				   updateAction: 'accciones.php?action=update',
 				   deleteAction: 'accciones.php?action=delete' 
                },
