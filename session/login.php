@@ -10,7 +10,7 @@
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result);
 		$count = $row['cntUser'];
-		
+		echo $count;
 
     	if($count > 0){
         $_SESSION['usuario'] = $usuario;

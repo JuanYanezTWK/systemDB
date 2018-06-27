@@ -1,5 +1,11 @@
 <?php
-   
+    /*include 'connect.php';
+    $conexion = new Conexion();
+    $con = $conexion->getConexion();
+    Esto lo deje comentado, ya que habia creado una clase para conexion a la bD de tipo PDO, no pude conectarla a este php, 
+    asi que lo use de otra manera al final y lo guarde para ver si logro aprender mas de PDO, cree una nueva clase de conexion
+    y la añadi aqui abajo
+    */
     include 'session/conexion.php';
     $conexion = new Conexion();
     $con = $conexion-> getConexion();
@@ -33,7 +39,8 @@
             echo json_encode($jTableResult);
         }
         
-	//Creating a new record (createAction)
+    //Creating a new record (createAction)
+    /*
 	else if($_GET["action"] == "create")
 	{
 		//Insert record into database
@@ -49,7 +56,8 @@
 		$jTableResult['Result'] = "OK";
 		$jTableResult['Record'] = $row;
 		echo json_encode($jTableResult);
-	}
+    }
+    */
 	//Updating a record (updateAction)
 	else if($_GET["action"] == "update")
 	{
