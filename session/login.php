@@ -3,8 +3,8 @@
 
 	$conexion = new Conexion();
 	$con = $conexion-> getConexion();
-	$usuario = $_POST['user_name'];
-	$pass = $_POST['user_pass'];
+	$usuario = $_POST['username'];
+	$pass = $_POST['userpass'];
 	
 		$sql = "SELECT count(*) as cntUser from users where user_name= '".$usuario."' and user_pass = '".$pass."' ";
 		$result = mysqli_query($con,$sql);
