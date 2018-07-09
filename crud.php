@@ -24,8 +24,9 @@ function insert($user, $pass, $position) {
 function update($id, $user, $pass, $position) {
                     $conexion = new Conexion();
                     $con = $conexion-> getConexion();
-                    $sql = "UPDATE users SET user_name = '$user', user_pass = '$pass', user_position = '$position' 
+                    $sql = "UPDATE users SET user_id = '$id' ,user_name = '$user', user_pass = '$pass', user_position = '$position' 
                             WHERE user_id = '$id' ";
+                        echo $sql;
                     $result=mysqli_query($con,$sql);
                     
 	            $jTableResult = array();
@@ -33,4 +34,5 @@ function update($id, $user, $pass, $position) {
                     echo json_encode($jTableResult);
                     mysqli_close($con);
 }
+
 ?>

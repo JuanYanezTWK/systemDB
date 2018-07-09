@@ -3,9 +3,9 @@ session_start();
 
 if (isset($_SESSION['loger']) && $_SESSION['loger'] == true) {
 
-} else {
-    echo "<script>alert('Tienes que iniciar sesion para entrar al sitio.') </script>";
-    
+} else {?>
+    <script type="text/javascript">alert('Tienes que iniciar sesion para entrar al sitio.'); </script>
+    <?php
     echo "<script> window.location = 'login.php' </script>";
 
 exit;
@@ -17,7 +17,7 @@ if($now > $_SESSION['expire']) {
 session_destroy();
 
 echo "Su sesion a terminado,
-<a href='login.php'>Necesita inciar sesion</a>";
+<a href='login.php'>Necesita iniciar sesion</a>";
 exit;
 }
 ?>
@@ -46,4 +46,4 @@ exit;
     </body>
 </html>
 
-<script src = "scripts/tab.js" type="text/javascript"> </script>
+<script src = "scripts/tabusuario.js" type="text/javascript"> </script>

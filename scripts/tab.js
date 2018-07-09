@@ -2,7 +2,7 @@
         $(document).ready(function(){
            $('#usuarios').jtable({
                title: "Usuarios registrados",
-               paging: true, //paginacion de la tabla es verdadera
+               paging: true, //paginacion de la tabla
                pageSize: 10, //numero de registros
                sorting: true, //ordenado de registros
                defaultSorting: 'user_id ASC', //modo de ordenado
@@ -18,13 +18,13 @@
                        key:true,
                        title:'ID',
                        create:false,
-                       edit: false,
+                       edit:false,
                        width:'5%'
                        
                    },
                    user_name:{
                        title:'Nombre de usuario',
-                       width:'25%',
+                       width:'20%',
                        create: true,
                        edit:true
                        
@@ -41,6 +41,7 @@
                        create:true,
                        edit:true
                    }
+
                },
         messages:{
             serverCommunicationError: 'Ocurrio un error mientras se comunicaba con el servidor.',
@@ -66,5 +67,5 @@
      }
            }); 
            $('#usuarios').jtable('load'); //carga las acciones
-         
+           
         });

@@ -12,7 +12,7 @@ try{
         $sql="SELECT count(*) as RecordCount from users";
         $result=mysqli_query($con,$sql);
         $row=mysqli_fetch_array($result);
-        $recordCount=$row['RecordCount'];
+        $recordCount=$row['RecordCount'];   
         
         //obtenemos datos de paginacion de la tabla y hacemos el query con el limit de la cantidad de usuarios que se mostraran
         $campoDorden=$_GET['jtSorting'];
