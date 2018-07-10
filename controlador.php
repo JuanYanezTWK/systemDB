@@ -1,12 +1,14 @@
 <?php
 include 'crud.php';
 
+
     $user = $_POST["user_name"];
     $pass = $_POST["user_pass"];
     $position = $_POST["user_position"]; 
-    $admin = "admin";
+    $admin = "administrador";
     $usuario = "usuario";
     // Opcion para crear usuario de la tabla
+
     if ($_GET['action']=='create') 
     {   //Validaciones 
         if ($user != "" && $pass != "" && $position != "") {
@@ -15,12 +17,25 @@ include 'crud.php';
                     //Si los datos estan correctos, llama a la funcion de crud.php
                     insert($user, $pass, $position);
                 }
-                else {
-                    echo "<script>alert('Ingrese los datos correctamente')</script>";
+                else{
+                    $jTableResult=array();
+                    $jTableResult['Result']="ERROR";
+                    $jTableResult['Message']="El cargo solo puede ser administrador o usuario.";
+                    echo json_encode($jTableResult);
                 }
             }
-        }
-        
+            else{
+                $jTableResult=array();
+                $jTableResult['Result']="ERROR";
+                $jTableResult['Message']="Ingrese los datos correctamente.";
+                echo json_encode($jTableResult);
+            }
+        }else{
+            $jTableResult=array();
+            $jTableResult['Result']="ERROR";
+            $jTableResult['Message']="Los campos no pueden estar vacios";
+            echo json_encode($jTableResult);
+        }  
         
         
     }
@@ -35,8 +50,26 @@ include 'crud.php';
                     update($id, $user, $pass, $position);
                     
                  }
+                 else{
+                    $jTableResult=array();
+                    $jTableResult['Result']="ERROR";
+                    $jTableResult['Message']="El cargo solo puede ser administrador o usuario.";
+                    echo json_encode($jTableResult);
+                 }
+            }
+            else{
+                $jTableResult=array();
+                $jTableResult['Result']="ERROR";
+                $jTableResult['Message']="Ingrese los datos correctamente.";
+                echo json_encode($jTableResult);
             }
         }
+        else{
+            $jTableResult=array();
+            $jTableResult['Result']="ERROR";
+            $jTableResult['Message']="Los campos no pueden estar vacios";
+            echo json_encode($jTableResult);
+        }  
     }
-    
+
 ?>

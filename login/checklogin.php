@@ -23,10 +23,10 @@ if ($result->num_rows > 0) {
  if ($password == $row['user_pass']) { 
  
     $_SESSION['loger'] = true;
-    $_SESSION['username'] = $username;
+    $_SESSION['username'] = $row['user_position'];
     $_SESSION['start'] = time();
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
-      if ($row['user_position'] == "admin"){
+      if ($row['user_position'] == "administrador"){
       echo "<script> window.location = '../index.php' </script>";
          }
       

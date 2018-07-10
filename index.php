@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (isset($_SESSION['loger']) && $_SESSION['loger'] == true) {
+if (isset($_SESSION['loger']) && $_SESSION['loger'] == true && $_SESSION['username']=='administrador') {
 
 } else {
-    echo "<script>alert('Tienes que iniciar sesion para entrar al sitio.') </script>";
-    
+    echo "<script>alert('Tienes que iniciar sesion para entrar al sitio o no tienes el permiso suficiente.') </script>";
+    echo "<script> window.location = 'login/logout.php' </script>";
     echo "<script> window.location = 'login.php' </script>";
 
 exit;
@@ -16,8 +16,8 @@ $now = time();
 if($now > $_SESSION['expire']) {
 session_destroy();
 
-echo "Su sesion a terminado,
-<a href='login.php'>Necesita inciar sesion</a>";
+echo "<script>alert('Su sesion ha expirado, inicie sesion nuevamente.') </script>";    
+echo "<script> window.location = 'login.php' </script>";
 exit;
 }
 ?>
@@ -39,10 +39,14 @@ exit;
     <body>
         <form id="formulario">
         
-        <a href='login/logout.php'>Cerrar sesion</a>
+        
         <div id="usuarios" style="width: 700px;border:2px solid black; margin:auto"></div>
-         
+        
+        <a class="texto"href='login/logout.php'>Cerrar sesion</a>
+        
+        
         </form>
+        
     </body>
 </html>
 

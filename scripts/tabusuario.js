@@ -22,11 +22,6 @@
                         width:'20%',                      
                         
                     },
-                    user_pass:{
-                        title:'Contraseña',
-                        width: '20%',
-                        
-                    },
                     user_position:{
                         title:'Cargo',
                         width:'20%',

@@ -1,9 +1,11 @@
+
 #contenido{
 	width: 100%;
 	height: 100%;
 	display: flex;
 	/*margin: 0 auto;*/
 }
+
 
 #formulario{
 	width: 70%;
@@ -14,7 +16,11 @@
 	border: 1px solid #a3a1a1;
 	align-items: center;
 	background-color: #FFFFFF;
+	
+	
+	
 }
+
 
 h3{
 	margin-left: 13px;
@@ -27,30 +33,24 @@ hr{
 }
 
 input{
-	width: 95%;
+	width: 15px;
 	height: 45px;
 	font-size: 14px;
 	padding: 10px;
 	margin: 10px 14px 10px;
 	border-radius: 5px;
-	border: solid 1px #B5C5D3;
+	border: solid 1px rgb(189, 19, 56);
 	box-sizing: border-box;
 }
 
 input[type="submit"]{
-	background: #2B669A;
-	color: #fff;
-	margin-bottom: 30px;
+	width: 15px;
+	background: rgb(177, 1, 1);
+	color: rgb(149, 0, 12);
+	margin-bottom: 15px;
 }
+   
 
-.mostrar{
-	background-color: #5DB75D;
-	width: 80%;
-	margin-bottom: 25px;
-	padding: 10px;
-    color: #fff;
-    
-}
 body {
     background: #76b852; /* fallback for old browsers */
     background: -webkit-linear-gradient(right, #76b852, #8DC26F);
@@ -60,4 +60,27 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
+  }
+  .container{
+    text-align:center
+}
+.texto{
+	text-align: right; 
+}
+.form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 10%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+  }
+  .form button:hover,.form button:active,.form button:focus {
+	background: #43A047;
   }
