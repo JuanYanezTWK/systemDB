@@ -34,6 +34,8 @@ exit;
 	    <script src="scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
         <script src="Scripts/jtable/jquery.jtable.js" type="text/javascript"></script>
+        <script src="scripts/tab.js" type="text/javascript"> </script>
+
         
     </head>
     <body>
@@ -44,10 +46,8 @@ exit;
         
         <a class="texto"href='login/logout.php'>Cerrar sesion</a>
         
-        
         </form>
         
     </body>
 </html>
 
-<script src = "scripts/tab.js" type="text/javascript"> </script>

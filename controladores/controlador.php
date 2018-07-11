@@ -1,7 +1,6 @@
 <?php
 include 'crud.php';
 
-
     $user = $_POST["user_name"];
     $pass = $_POST["user_pass"];
     $position = $_POST["user_position"]; 

@@ -1,6 +1,6 @@
 <?php
 
-include 'conexion/conexion.php';
+include '../conexion/conexion.php';
 $conexion = new Conexion();
 $con = $conexion-> getConexion();
 
@@ -31,22 +31,7 @@ try{
         $jTableResult['TotalRecordCount']=$recordCount;
         $jTableResult['Records']=$rows; 
         echo json_encode($jTableResult);
-    }
-
-else if($_GET["action"] == "delete")
-{
-    //Hacemos la query para el delete
-    $sql = "DELETE FROM users WHERE user_id = " . $_POST["user_id"] . ";";
-    $result = mysqli_query($con, $sql);
-
-    //Retornamos el result a la tabla
-    $jTableResult = array();
-    $jTableResult['Result'] = "OK";
-    echo json_encode($jTableResult);
-}
-
-//Cerramos la conexion a base de datos
-mysqli_close($con);   
+    }mysqli_close($con);   
 
 }catch (Exception $e){
     $jTableResult=array();

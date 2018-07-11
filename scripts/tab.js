@@ -8,10 +8,10 @@
                defaultSorting: 'user_id ASC', //modo de ordenado
                actions:{
                    //Especificamos en donde estaran las acciones que ejecuta la tabla 
-                   listAction: 'acciones.php?action=list',
-                   createAction: 'controlador.php?action=create',
-				   updateAction: 'controlador.php?action=update',
-				   deleteAction: 'acciones.php?action=delete' 
+                   listAction: 'controladores/acciones.php?action=list',
+                   createAction: 'controladores/controlador.php?action=create',
+				   updateAction: 'controladores/controlador.php?action=update',
+				   deleteAction: 'controladores/acciones.php?action=delete' 
                },
                fields:{
                    user_id:{
@@ -24,22 +24,25 @@
                    },
                    user_name:{
                        title:'Nombre de usuario',
-                       width:'20%',
+                       
                        create: true,
                        edit:true
                        
                    },
                    user_pass:{
                        title:'Contraseña',
-                       width: '20%',
+                       
                        create:true,
-                       edit:true
+                       edit:true,
+                       type: 'password'
                    },
                    user_position:{
                        title:'Cargo',
-                       width:'20%',
+                       
                        create:true,
-                       edit:true
+                       edit:true,
+                       options: { 'administrador': 'administrador', 'usuario': 'usuario' }
+
                    }
 
                },

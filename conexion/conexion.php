@@ -1,5 +1,5 @@
 <?php 
-	//Esta fue la que cree al no poder usar la otra PDO
+	
 	class Conexion{
 	private $servidor = "localhost";
 	private $usuario = "root";

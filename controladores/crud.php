@@ -1,5 +1,5 @@
 <?php
-include 'conexion/conexion.php';
+include '../conexion/conexion.php';
 
 function insert($user, $pass, $position) {
                  //instanciamos la clase Conexion y obtenemos la conexion de la funcion getConexion asignandosela a $con

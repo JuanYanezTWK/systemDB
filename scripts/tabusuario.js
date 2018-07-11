@@ -5,16 +5,19 @@
                 paging: true, //paginacion de la tabla
                 pageSize: 10, //numero de registros
                 sorting: true, //ordenado de registros
-                defaultSorting: 'user_id ASC', //modo de ordenado
+                defaultSorting: 'user_name ASC', //modo de ordenado
                 actions:{
                     //Especificamos en donde estaran las acciones que ejecuta la tabla 
-                    listAction: 'acciones.php?action=list',
+                    listAction: 'controladores/acciones.php?action=list',
                    },
                 fields:{
                     user_id:{
+                        
                         key:true,
-                        title:'ID',                        
-                        width:'5%'
+                        create: false,
+                        edit:false,
+                        list: false
+                        
                         
                     },
                     user_name:{
