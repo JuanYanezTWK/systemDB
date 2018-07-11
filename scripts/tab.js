@@ -19,28 +19,21 @@
                        title:'ID',
                        create:false,
                        edit:false,
-                       width:'5%'
-                       
+                       width:'5%'                       
                    },
                    user_name:{
                        title:'Nombre de usuario',
-                       
-                       create: true,
-                       edit:true
+                                       
                        
                    },
                    user_pass:{
                        title:'Contraseña',
                        
-                       create:true,
-                       edit:true,
                        type: 'password'
                    },
                    user_position:{
                        title:'Cargo',
-                       
-                       create:true,
-                       edit:true,
+                        
                        options: { 'administrador': 'administrador', 'usuario': 'usuario' }
 
                    }
